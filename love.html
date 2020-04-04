@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<!--<head>-->
+<!--    <meta charset="utf-8"/>-->
+<!--&lt;!&ndash;    <meta name="viewport" content="width=device-width" />&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta name="renderer" content="webkit" />&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />&ndash;&gt;-->
+<!--    <title>黄先生和爱莉宝宝的恋爱故事</title>-->
+<!--    <link href="@{/user/css/love.css}" rel="stylesheet"/>-->
+<!--</head>-->
+
+<div th:replace="themes/default/loveheader::header('我和她的恋爱',null)"></div>
+
+<style type="text/css">
+
+
+.lovecontent {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    /*top:50px;*/
+    top: 10%;
+    /*margin-top: 110px;*/
+    text-align: center;
+}
+
+
+    /* 心形按钮 */
+    .liker {
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+    .liker span {
+        position: absolute;
+        font-family: monospace;
+        color: #F92A82;
+        bottom: -70px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .btn {
+        width: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        position: absolute;
+        cursor: pointer;
+        left: 50%;
+        transform: translate(-50%, -10%);
+        background-color: #FF4D80;
+        color: #fff;
+        outline: none;
+        transition: 0.3s ease;
+        box-shadow: 0 3px 10px #F92A82;
+    }
+    .btn svg {
+        fill: #fff;
+    }
+    .btn:hover {
+        background-color: #F92A82;
+    }
+
+    .heart {
+        margin: 100px auto;
+        width: 200px;
+        height: 200px;
+        /* border: 1px solid #0094ff; */
+        position: relative;
+        animation-name: shake;
+        animation-duration: .5s;
+        animation-iteration-count: infinite;
+    }
+
+    .heart div {
+        /* border: 1px solid #0094ff; */
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        /*background: pink;*/
+        background: #FF3333;
+        animation-name: shadow;
+        animation-duration: .5s;
+        animation-iteration-count: infinite;
+    }
+
+    .topLeft,
+    .topRight {
+        border-radius: 100px 100px 0 0;
+    }
+
+    .topLeft {
+        transform: translate(-50px, 0) rotate(-45deg);
+    }
+
+    .topRight {
+        transform: translate(50px, 0) rotate(45deg);
+    }
+
+    .bottom {
+        transform: translate(0, 64px) rotate(45deg) scale(.9, .9);
+    }
+    /* 定义动画 */
+
+    @keyframes shake {
+        from {
+            transform: scale(.9, .9);
+        }
+        to {
+            transform: scale(1.1, 1.1);
+        }
+    }
+
+    @keyframes shadow {
+        from {}
+        to {
+            box-shadow: 0px 0px 50px #FF3333;
+        }
+    }
+
+    .this-div{
+
+
+        background-image: -webkit-linear-gradient(left, rgba(150, 0, 44, 0.96), #e60078 25%, #96007b 25%, #e66b00 25%, #147B96 25%);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-background-size: 200% 100%;
+        -webkit-animation:  maskedAnimation 4s infinite linear;
+        font-size: 220%;
+        font-family: 'Love Ya Like A Sister', cursive;
+        font-weight: 800;
+    }
+
+    .timer-div{
+
+
+         background-image: -webkit-linear-gradient(left, rgb(228, 255, 0), #e6d800 25%, #967b00 25%, #e67600 25%, #147B96 25%);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-background-size: 200% 100%;
+        -webkit-animation:  maskedAnimation 4s infinite linear;
+        font-size: 150%;
+        font-family: 'Love Ya Like A Sister', cursive;
+        font-weight: 800;
+    }
+
+
+    .dsc-div{
+        background-image: -webkit-linear-gradient(left, #ace, #f96);
+        /*background-image: -webkit-linear-gradient(right, rgba(150, 40, 0, 0.9), #e60014 25%, #960033 25%, #e6007a 25%, #147B96 25%);*/
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-background-size: 200% 100%;
+        -webkit-animation:  maskedAnimation 4s infinite linear;
+        font-size: 100%;
+        font-family: 'Love Ya Like A Sister', cursive;
+        font-weight: 800;
+    }
+
+    @keyframes maskedAnimation {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: -100% 0;
+        }
+    }
+
+    @keyframes maskedAnimation1 {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: -100% 0;
+        }
+    }
+
+    @keyframes maskedAnimation2 {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: -100% 0;
+        }
+    }
+
+</style>
+
+
+
+
+<body>
+
+
+    <div class="lovecontent">
+
+
+
+        <div class="this-div">
+            我 和 她 一 起 走 过 了
+        </div>
+
+        <div class="timer-div">
+            <b id="d"></b> 天 <b id="h"></b> 小时 <b id="m"></b> 分钟 <b id="s"></b> 秒
+        </div>
+        
+        <div class="dsc-div"> 
+               从2014年6月24日 ==> 一辈子
+        </div>
+     
+
+        <div class="heart">
+            <div class='topLeft'></div>
+            <div class='topRight'></div>
+            <div class='bottom'></div>
+        </div>
+
+    </div>
+
+
+<script>
+    function timer() {
+        var start = new Date(2014, 6, 24); // 2015.7.2
+        var t = new Date() - start;
+        var h = ~~(t / 1000 / 60 / 60 % 24);
+        if (h < 10) {
+            h = "0" + h;
+        }
+        var m = ~~(t / 1000 / 60 % 60);
+        if (m < 10) {
+            m = "0" + m;
+        }
+
+        var s = ~~(t / 1000 % 60);
+        if (s < 10) {
+            s = "0" + s;
+        }
+        document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24)+30;
+        document.getElementById('h').innerHTML = h;
+        document.getElementById('m').innerHTML = m;
+        document.getElementById('s').innerHTML = s;
+    }
+    timer();
+    setInterval(timer, 1000);
+
+</script>
+
+
+
+</body>
+
+</html>
